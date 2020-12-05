@@ -3,12 +3,10 @@ package app.fujii.iropic.color2
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.drawable.DrawableWrapper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
-import android.view.View
 import android.widget.ImageView
 import androidx.core.graphics.blue
 import androidx.core.graphics.drawable.toBitmap
