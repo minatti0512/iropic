@@ -13,7 +13,6 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.green
 import androidx.core.view.MotionEventCompat
 import kotlinx.android.synthetic.main.activity_color.*
-import kotlinx.android.synthetic.main.list_item.*
 import androidx.core.graphics.red as red1
 
 class ColorActivity : AppCompatActivity() {
