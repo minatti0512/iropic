@@ -36,7 +36,7 @@ class CameraActivity : AppCompatActivity() {
         setContentView(R.layout.activity_camera)
 
 
-            cameraImage.setOnTouchListener{ view, motionEvent ->
+            imageView.setOnTouchListener{ view, motionEvent ->
             val image = view as ImageView
 
             val bitmap = Bitmap.createBitmap(image.drawable.toBitmap())
@@ -62,8 +62,8 @@ class CameraActivity : AppCompatActivity() {
             }
 
             val pixel = bitmap.getPixel(x, y)
-            textView10.text = "(${pixel.red},${pixel.green},${pixel.blue})"
-            textView10.setTextColor(pixel)
+            rgbTextView.text = "(${pixel.red},${pixel.green},${pixel.blue})"
+            rgbTextView.setTextColor(pixel)
             //colorView.setBackgroundColor(pixel)
             //    potionTextView.text = "x: $x, y: $y"
 
@@ -71,10 +71,28 @@ class CameraActivity : AppCompatActivity() {
             codeTextView1.setTextColor(pixel)
             colorView.setBackgroundColor(pixel)
 
+                pickerView.setBackgroundColor(pixel)
+                changePickerViewPosition(motionEvent.x, motionEvent.y)
+
+
             true
 
 
         }
+    }
+
+    private fun changePickerViewPosition(x: Float,y: Float){
+
+        val offsetX: Int = 30
+        val offsetY: Int = -80
+
+        val left = x.toInt() + offsetX
+        val top =y.toInt() + offsetY
+        val right = (x + pickerView.width).toInt() + offsetX
+        val bottom = (y + pickerView.height).toInt() + offsetY
+
+        pickerView.layout(left, top, right, bottom)
+
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
@@ -129,7 +147,7 @@ class CameraActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val image = data?.extras?.get("data")?.let {
-                cameraImage.setImageBitmap(it as Bitmap)
+                imageView.setImageBitmap(it as Bitmap)
             }
         }
     }
