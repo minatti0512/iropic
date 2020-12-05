@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, CameraActivity::class.java)
                 startActivity(intent)
 
-
+//konnitiwa
             }
         })
   //      val changebutton2 = findViewById<Button>(R.id.chengebutton2)
